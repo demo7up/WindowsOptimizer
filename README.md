@@ -6,13 +6,13 @@
 
 **A free, open-source Windows optimization tool focused on performance, privacy, and simplicity — delivered as a single, menu-driven PowerShell app. No install, no GUI, no telemetry.**
 
-[![Release](https://shieldcn.dev/github/release/demo7up/WindowsOptimizer.svg?variant=secondary&logo=ri:FaTag&logoColor=ebc15e&size=xs&theme=stone&split=true)](https://github.com/demo7up/WindowsOptimizer/releases/latest)
-[![Stars](https://shieldcn.dev/github/stars/demo7up/WindowsOptimizer.svg?variant=secondary&logo=ri:FaStar&logoColor=ebc15e&size=xs&theme=stone&split=true)](https://github.com/demo7up/WindowsOptimizer/stargazers)
-[![License](https://shieldcn.dev/badge/License-GPL_v3.svg?variant=secondary&logo=ri:FaBalanceScale&logoColor=ebc15e&size=xs&theme=stone&split=true)](./LICENSE)
+[![Release](https://img.shields.io/github/v/release/demo7up/WindowsOptimizer?style=flat&label=release&color=22c55e)](https://github.com/demo7up/WindowsOptimizer/releases/latest)
+[![Stars](https://img.shields.io/github/stars/demo7up/WindowsOptimizer?style=flat&label=stars&color=ebc15e)](https://github.com/demo7up/WindowsOptimizer/stargazers)
+[![License](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat)](./LICENSE)
 <br>
-[![PowerShell](https://shieldcn.dev/badge/PowerShell-5.1%2B_%7C_7.svg?variant=secondary&logo=ri:FaTerminal&logoColor=5391fe&size=xs&theme=stone&split=true)](https://learn.microsoft.com/powershell/)
-[![Supported OS](https://shieldcn.dev/badge/Windows-10%2B_%7C_x64_%7C_ARM64.svg?variant=secondary&logo=ri:FaWindows&logoColor=0078d4&size=xs&theme=stone&split=true)](https://www.microsoft.com/software-download/)
-[![No Telemetry](https://shieldcn.dev/badge/Telemetry-None.svg?variant=secondary&logo=ri:FaShieldAlt&logoColor=22c55e&size=xs&theme=stone&split=true)](#safety)
+[![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B%20%7C%207-5391FE?style=flat&logo=powershell&logoColor=white)](https://learn.microsoft.com/powershell/)
+[![Windows](https://img.shields.io/badge/Windows-10%2B%20%7C%20x64%20%7C%20ARM64-0078D4?style=flat&logo=windows&logoColor=white)](https://www.microsoft.com/software-download/)
+[![Telemetry](https://img.shields.io/badge/telemetry-none-brightgreen?style=flat)](#safety)
 
 </div>
 
@@ -81,6 +81,16 @@ This downloads the latest version to a temp folder and launches it. The app **el
 
 > [!NOTE]
 > It runs on **Windows PowerShell 5.1** (built into Windows 10/11) or **PowerShell 7+**. No .NET SDK, no build step, no dependencies.
+
+---
+
+## Highlights
+
+- **267 features across 16 categories** — Privacy & Telemetry, Performance, Gaming, GPU Tuning, Power, Appearance & Personalization, Apps & Bloatware, Network, System Repair, Cleanup & Storage, Diagnostics & Reports, Services & Startup, Security & Firewall, Windows Features & Updates, Files & Folders, Launchers.
+- **Reversible** — every optimization and setting snapshots its exact prior state for one-step revert; destructive repair tasks require typing `ARM`.
+- **Safe by default** — starts in dry-run; nothing is applied until you select it; tweaks are risk-rated Safe / Moderate / Risky.
+- **Pure PowerShell** — Windows PowerShell 5.1 compatible (or 7+), self-elevating, no .NET SDK, no build step.
+- **Search across everything**, plus a built-in Dashboard, Disk Cleanup, Bloatware Remover, Startup and Scheduled-Task managers.
 
 ---
 
