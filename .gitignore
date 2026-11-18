@@ -1,0 +1,6 @@
+# Scratch banner-concept renders (not shipped)
+.github/assets/concepts/
+
+# Local run logs
+logs/
+*.log
