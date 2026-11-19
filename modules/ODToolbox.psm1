@@ -81,6 +81,42 @@ Write-Host "Done." -ForegroundColor Green
                 Write-ODOk "  Weekly maintenance task created (Sundays 12:00)."
             } else { Write-Host "  (DRY-RUN) would create a weekly scheduled task" -ForegroundColor Cyan }
         }
+        'remove_ms_accounts' {
+            # Sign out of all work/school (WAM) accounts and clear cached Office/M365
+            # licenses using Microsoft's official OLicenseCleanup + signoutofwamaccounts tools.
+            $urls = @{
+                'OLicenseCleanup.vbs'      = 'https://download.microsoft.com/download/e/1/b/e1bbdc16-fad4-4aa2-a309-2ba3cae8d424/OLicenseCleanup.zip'
+                'signoutofwamaccounts.ps1' = 'https://download.microsoft.com/download/f/8/7/f8745d3b-49ad-4eac-b49a-2fa60b929e7d/signoutofwamaccounts.zip'
+            }
+            if (Test-ODDryRun) {
+                Write-Host "  (DRY-RUN) would download Microsoft's cleanup tools and run OLicenseCleanup.vbs:" -ForegroundColor Cyan
+                foreach ($u in $urls.Values) { Write-Host ("    " + $u) -ForegroundColor DarkGray }
+                return
+            }
+            $folder = Join-Path $env:LOCALAPPDATA ('OfficeReset-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
+            New-Item -ItemType Directory -Path $folder -Force | Out-Null
+            try { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 } catch {}
+            foreach ($name in $urls.Keys) {
+                $existing = Get-ChildItem -LiteralPath $folder -Recurse -File -Filter $name -ErrorAction SilentlyContinue | Select-Object -First 1
+                if (-not $existing) {
+                    $zip = Join-Path $folder ($name + '.zip')
+                    Write-Host ("  Downloading {0}..." -f $name) -ForegroundColor Cyan
+                    Invoke-WebRequest -Uri $urls[$name] -OutFile $zip -UseBasicParsing
+                    Expand-Archive -LiteralPath $zip -DestinationPath $folder -Force
+                }
+            }
+            $vbs = Get-ChildItem -LiteralPath $folder -Recurse -File -Filter 'OLicenseCleanup.vbs' | Select-Object -First 1
+            $wam = Get-ChildItem -LiteralPath $folder -Recurse -File -Filter 'signoutofwamaccounts.ps1' | Select-Object -First 1
+            if (-not $vbs -or -not $wam) { throw "One or both Microsoft scripts are missing after extraction. Inspect: $folder" }
+            $destination = Join-Path $vbs.DirectoryName 'signoutofwamaccounts.ps1'
+            if ($wam.FullName -ne $destination) { Copy-Item -LiteralPath $wam.FullName -Destination $destination -Force }
+            Push-Location -LiteralPath $vbs.DirectoryName
+            try {
+                & "$env:SystemRoot\System32\cscript.exe" //nologo $vbs.FullName
+                if ($LASTEXITCODE -ne 0) { throw "Cleanup returned exit code $LASTEXITCODE. Review the output above." }
+                Write-ODOk "  Microsoft account + Office license cleanup complete."
+            } finally { Pop-Location }
+        }
         default { Write-ODWarn ("  Unknown special action: {0}" -f $Task.Action) }
     }
 }
@@ -97,7 +133,11 @@ function Invoke-ODToolboxTask {
     Write-Host ""
 
     if ($Task.Kind -eq 'special') {
-        if ($Task.Danger -and -not (Confirm-ODAction "  Proceed?")) { return }
+        if ($Task.Danger) {
+            Write-ODWarn "  This is a destructive / high-impact action."
+            if (Test-ODDryRun) { Write-Host "  (DRY-RUN on - it will only be described.)" -ForegroundColor Cyan }
+            if ((Read-ODLine "  Type ARM to confirm: ").Trim() -ne 'ARM') { Write-ODInfo "  Cancelled."; Invoke-ODPause; return }
+        }
         Invoke-ODToolboxSpecial -Task $Task
         Invoke-ODPause; return
     }

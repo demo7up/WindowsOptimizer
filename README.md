@@ -4,7 +4,7 @@
 
 # WindowsOptimizer
 
-**A free, open-source Windows optimization tool focused on performance, privacy, and simplicity — delivered as a single, menu-driven PowerShell app. No install, no GUI, no telemetry.**
+**A free, open-source Windows optimization tool focused on performance, privacy, and simplicity â€” delivered as a single, menu-driven PowerShell app. No install, no GUI, no telemetry.**
 
 [![Release](https://img.shields.io/github/v/release/demo7up/WindowsOptimizer?style=flat&label=release&color=22c55e)](https://github.com/demo7up/WindowsOptimizer/releases/latest)
 [![Stars](https://img.shields.io/github/stars/demo7up/WindowsOptimizer?style=flat&label=stars&color=ebc15e)](https://github.com/demo7up/WindowsOptimizer/stargazers)
@@ -37,7 +37,7 @@ __        ___           _
    4. GPU Tuning                     (8)
    5. Power                          (10)
    6. Appearance & Personalization   (34)
-   7. Apps & Bloatware               (18)
+   7. Apps & Bloatware               (19)
    8. Network                        (15)
    9. System Repair                  (33)
   10. Cleanup & Storage              (19)
@@ -86,10 +86,10 @@ This downloads the latest version to a temp folder and launches it. The app **el
 
 ## Highlights
 
-- **267 features across 16 categories** — Privacy & Telemetry, Performance, Gaming, GPU Tuning, Power, Appearance & Personalization, Apps & Bloatware, Network, System Repair, Cleanup & Storage, Diagnostics & Reports, Services & Startup, Security & Firewall, Windows Features & Updates, Files & Folders, Launchers.
-- **Reversible** — every optimization and setting snapshots its exact prior state for one-step revert; destructive repair tasks require typing `ARM`.
-- **Safe by default** — starts in dry-run; nothing is applied until you select it; tweaks are risk-rated Safe / Moderate / Risky.
-- **Pure PowerShell** — Windows PowerShell 5.1 compatible (or 7+), self-elevating, no .NET SDK, no build step.
+- **267 features across 16 categories** â€” Privacy & Telemetry, Performance, Gaming, GPU Tuning, Power, Appearance & Personalization, Apps & Bloatware, Network, System Repair, Cleanup & Storage, Diagnostics & Reports, Services & Startup, Security & Firewall, Windows Features & Updates, Files & Folders, Launchers.
+- **Reversible** â€” every optimization and setting snapshots its exact prior state for one-step revert; destructive repair tasks require typing `ARM`.
+- **Safe by default** â€” starts in dry-run; nothing is applied until you select it; tweaks are risk-rated Safe / Moderate / Risky.
+- **Pure PowerShell** â€” Windows PowerShell 5.1 compatible (or 7+), self-elevating, no .NET SDK, no build step.
 - **Search across everything**, plus a built-in Dashboard, Disk Cleanup, Bloatware Remover, Startup and Scheduled-Task managers.
 
 ---
@@ -102,7 +102,7 @@ WindowsOptimizer brings it all into **16 categories** - optimize, customize, rep
 
 ## Categories
 
-All **267 features** are organized into these 16 categories:
+All **268 features** are organized into these 16 categories:
 
 | Category | Items | What's inside |
 | :--- | ---: | :--- |
@@ -112,7 +112,7 @@ All **267 features** are organized into these 16 categories:
 | **GPU Tuning** | 8 | Vendor power-state and latency tweaks for AMD, NVIDIA and Intel. |
 | **Power** | 10 | Hibernation, Fast Startup, USB power, power plans, throttling, scheduled shutdown. |
 | **Appearance & Personalization** | 34 | Dark mode, visual effects, desktop icons, taskbar and Explorer options, context menu, and more. |
-| **Apps & Bloatware** | 18 | Remove AppX/bloatware, winget, OneDrive/Office/Outlook repair, browser caches, Store app repair. |
+| **Apps & Bloatware** | 19 | Remove AppX/bloatware, winget, OneDrive/Office/Outlook repair, browser caches, Store app repair. |
 | **Network** | 15 | DNS, TCP/IP, Winsock, adapters, ping/traceroute/port checks, Wi-Fi passwords. |
 | **System Repair** | 33 | Deep/Quick Fix, DISM, SFC, chkdsk, and resets for Update, WMI, Search, GPO, Hello and more. |
 | **Cleanup & Storage** | 19 | Temp and cache clears, Recycle Bin, Windows.old, restore points, defrag, disk health, large files. |
@@ -264,7 +264,7 @@ Every feature in one place. Click a category to expand.
 </details>
 
 <details>
-<summary><b>Apps & Bloatware (18)</b></summary>
+<summary><b>Apps & Bloatware (19)</b></summary>
 
 - Block Preinstalled Apps `[tweak]` - Block preinstalled / OEM / silent apps via ContentDeliveryManager.
 - Fix Windows Apps `[run]` - Re-register Store, Start Menu and built-in packages.
@@ -278,6 +278,7 @@ Every feature in one place. Click a category to expand.
 - Office Quick Repair `[run]` - Run Microsoft Office Click-to-Run Quick Repair.
 - Repair Outlook `[run]` - Launch Outlook with a reset navigation pane (fixes a broken profile view).
 - Reset Winget Sources `[run]` - Reset winget package sources (fixes winget errors).
+- Remove MS Accounts & Office Licenses `[tool]` - Sign out of all work/school (WAM) accounts and clear cached Office/Microsoft 365 licenses using Microsoft official cleanup tools (downloaded from microsoft.com).
 - Clear Browser Caches `[run]` - Clear Chrome / Edge / Brave / Firefox caches (close browsers first).
 - Debloat (Recommended) `[run]` - Apply the recommended privacy/debloat set: telemetry, ads, suggestions, and lock-screen spotlight off.
 - Remove Common Bloatware `[run]` - Uninstall common preinstalled apps (Candy Crush, Xbox, News, Weather, Clipchamp, etc.).
@@ -499,12 +500,12 @@ Every feature in one place. Click a category to expand.
 
 Changing system settings carries risk. WindowsOptimizer is built around **reversibility and user control**.
 
-- **Dry-run by default** — the app starts in DRY-RUN; nothing is written until you deliberately switch to LIVE.
-- **Automatic backups** — before each change, the prior value is snapshotted to `%LocalAppData%\WindowsOptimizer\Revert\{id}.json`. Restore individual tweaks or roll back everything.
-- **One-step revert** — undo any applied optimization or setting from the Revert menu.
-- **Risk ratings** — each tweak is labeled Safe, Moderate, or Risky.
-- **Arm-to-run** — destructive tasks require typing `ARM` before they run.
-- **No defaults applied** — nothing runs until you select it.
+- **Dry-run by default** â€” the app starts in DRY-RUN; nothing is written until you deliberately switch to LIVE.
+- **Automatic backups** â€” before each change, the prior value is snapshotted to `%LocalAppData%\WindowsOptimizer\Revert\{id}.json`. Restore individual tweaks or roll back everything.
+- **One-step revert** â€” undo any applied optimization or setting from the Revert menu.
+- **Risk ratings** â€” each tweak is labeled Safe, Moderate, or Risky.
+- **Arm-to-run** â€” destructive tasks require typing `ARM` before they run.
+- **No defaults applied** â€” nothing runs until you select it.
 
 ---
 
@@ -512,7 +513,7 @@ Changing system settings carries risk. WindowsOptimizer is built around **revers
 
 ### Is it safe to use?
 
-Yes. It is fully **open-source (GPL v3)** — every line is plain PowerShell you can read before running. There is no compiled binary and no build step; what you see is what runs. It collects **zero telemetry** and works entirely offline.
+Yes. It is fully **open-source (GPL v3)** â€” every line is plain PowerShell you can read before running. There is no compiled binary and no build step; what you see is what runs. It collects **zero telemetry** and works entirely offline.
 
 ### Does it actually improve performance?
 
@@ -520,11 +521,11 @@ It can help. Every optimization targets a real setting that Windows configures c
 
 ### Can I undo changes?
 
-Yes. Every optimization and setting writes a revert snapshot of the exact prior state before changing anything, so revert restores precisely what was there — not a guessed default. Repair and maintenance tasks (DISM, SFC, cleanups, etc.) are one-shot actions and are clearly flagged; create a restore point before running destructive ones.
+Yes. Every optimization and setting writes a revert snapshot of the exact prior state before changing anything, so revert restores precisely what was there â€” not a guessed default. Repair and maintenance tasks (DISM, SFC, cleanups, etc.) are one-shot actions and are clearly flagged; create a restore point before running destructive ones.
 
 ### Does it run on Windows 10 and 11?
 
-Yes — **Windows 10/11 (x64 & ARM64)**, on Windows PowerShell 5.1 or PowerShell 7+.
+Yes â€” **Windows 10/11 (x64 & ARM64)**, on Windows PowerShell 5.1 or PowerShell 7+.
 
 ### Do I need administrator rights?
 
@@ -532,17 +533,17 @@ Yes. It modifies system settings and the registry, so it elevates itself on laun
 
 ### Why does PowerShell block the script?
 
-Windows restricts script execution by default. Launch it with `-ExecutionPolicy Bypass` as shown in Quick Start — this applies only to that one run and changes nothing permanently.
+Windows restricts script execution by default. Launch it with `-ExecutionPolicy Bypass` as shown in Quick Start â€” this applies only to that one run and changes nothing permanently.
 
 ---
 
 ## Technical Details
 
-- **Pure PowerShell** — Windows PowerShell 5.1 compatible; no .NET SDK, no compilation.
-- **Declarative data model** — every optimization, setting, and toolbox task is defined as data (`data/*.psd1`); the engine dispatches each operation to the right primitive.
-- **Revert system** — registry, service, scheduled-task, hibernation, USB-power, and power-plan changes each capture their prior state to JSON for precise rollback.
-- **Self-elevating** — relaunches elevated automatically; defaults to a safe dry-run.
-- **ASCII-clean & logged** — every session is logged to `%LocalAppData%\WindowsOptimizer\Logs`.
+- **Pure PowerShell** â€” Windows PowerShell 5.1 compatible; no .NET SDK, no compilation.
+- **Declarative data model** â€” every optimization, setting, and toolbox task is defined as data (`data/*.psd1`); the engine dispatches each operation to the right primitive.
+- **Revert system** â€” registry, service, scheduled-task, hibernation, USB-power, and power-plan changes each capture their prior state to JSON for precise rollback.
+- **Self-elevating** â€” relaunches elevated automatically; defaults to a safe dry-run.
+- **ASCII-clean & logged** â€” every session is logged to `%LocalAppData%\WindowsOptimizer\Logs`.
 
 ### Project layout
 
@@ -559,7 +560,7 @@ Windows restricts script execution by default. Launch it with `-ExecutionPolicy 
 
 ## Disclaimer
 
-WindowsOptimizer is provided **"as is"**, without warranty of any kind. By using it, you agree the authors are not liable for system instability, data loss, or issues caused by third-party software or user modifications. It modifies system settings and the Windows registry — **use at your own risk**, and create a restore point before applying changes.
+WindowsOptimizer is provided **"as is"**, without warranty of any kind. By using it, you agree the authors are not liable for system instability, data loss, or issues caused by third-party software or user modifications. It modifies system settings and the Windows registry â€” **use at your own risk**, and create a restore point before applying changes.
 
 ---
 
@@ -567,7 +568,7 @@ WindowsOptimizer is provided **"as is"**, without warranty of any kind. By using
 
 <div align="center">
 
-**[GPL v3 License](https://www.gnu.org/licenses/gpl-3.0.en.html)** — see [LICENSE](./LICENSE).
+**[GPL v3 License](https://www.gnu.org/licenses/gpl-3.0.en.html)** â€” see [LICENSE](./LICENSE).
 
 [Back to top](#windowsoptimizer)
 

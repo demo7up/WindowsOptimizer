@@ -19,6 +19,7 @@
     'Launchers'
   )
   Map = @{
+    'remove_ms_accounts' = 'Apps & Bloatware'
     'opt-security-privacy-disable-telemetry' = 'Privacy & Telemetry'
     'opt-security-privacy-disable-error-reporting' = 'Privacy & Telemetry'
     'opt-security-privacy-disable-advertising-suggestions' = 'Privacy & Telemetry'
